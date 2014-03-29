@@ -1,4 +1,7 @@
 /* 26th y california css */
+body {
+  padding-top: 100px;
+}
 
 .navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
   display: block;
@@ -11,4 +14,14 @@
 
 .navbar-brand sup {
   top: -0.25em;
+}
+
+.pagenav {
+  position: fixed;
+  top: 50px;
+}
+
+.pagenav .navbar-nav {
+  margin: 0 auto;
+  float: none;
 }
