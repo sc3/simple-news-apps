@@ -16,14 +16,17 @@ and recording your work using Git's version control system.
 
 You will learn to use Backbone JS to structure your application, Underscore JS
 to process data, Twitter Bootstrap to structure your markup, and D3 for 
-data visualization.
+data visualization. The techniques used here were first described in
+`Responsive Charts with D3 and Backbone 
+<http://blog.apps.chicagotribune.com/2014/03/07/responsive-charts-with-d3-and-backbone/>`_
+by Ryan Nagle.
 
 This guide was prepared for Migrahack Mexico City, April 3-6, 2014 and presented
 by `David Eads <http://twitter.com/eads>`_.
 
 * Code repository: `https://github.com/sc3/26thycalifornia <https://github.com/sc3/26thycalifornia>`_
 * Demonstration: `http://26thycalifornia.recoveredfactory.net <http://26thycalifornia.recoveredfactory.net>`_
-* Documentation: `http://26thycalifornia.readthedocs.org/ <http://26thycalifornia.readthedocs.org/>`_
+* Documentation: `http://migrahack.readthedocs.org/ <http://migrahack.readthedocs.org/>`_
 * Issues: `https://github.com/sc3/26thycalifornia/issues <https://github.com/sc3/26thycalifornia/issues>`_
 
 Prerequisites
@@ -104,14 +107,26 @@ is all that's required to complete this lesson.
 Planning: Know your data
 ========================
 
-Understand your data
+- Acquire meaningful data (the data for this tutorial comes from a 
+  `scraper <https://github.com/sc3/cookcountyjail>`_).
+- Question the data:
+  - Does the data need cleaning or scrubbing?
+  - What comparisons can be made?
+  - How can the data be bucketed or categorized?
+  - How can the data be normalized and averaged?
+- Process data: "Boil down" into useful summary data structures.
+  - Time series
+  - Ratios
+  - Distributions 
+- Publish raw and summarized data with a web API
+
+`Time summaries of crime incident data <https://www.dropbox.com/s/m3jlrrld5rnmnpw/time%20summaries%20of%20crime%20incident%20data%20-%20data%20made%20simple%20hackathon%202014.pdf>`_ by David Eads describes how the the Chicago Tribune applies these techniques to crime data.
 
 
 Planning: Sketch your interface
 ===============================
 
-Images and words about sketching
-
+Todo (need photos of sketches)
 
 
 Set up: Bootstrap your project
