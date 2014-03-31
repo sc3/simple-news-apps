@@ -1,11 +1,12 @@
 <!doctype html>
 <html>
+
 <head>
   <!-- Título -->
   <title>26th y California</title>
 
   <!-- Meta -->
-  <link rel="shortcut icon" href="./favicon.ico" />
+  <link rel="shortcut icon" href="img/favicon.ico" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <!--
@@ -18,19 +19,39 @@
 
   <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css" />
-  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css" />
-  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css" />
+  <link href='http://fonts.googleapis.com/css?family=Radley:400,400italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
+
 <body>
-  <!-- Contenido -->
-  <div id="top" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container-fluid text-center">
-      <a href="#top" class="navbar-brand">26<sup>th</sup> y California</a>
+  <!-- Navegación -->
+  <div id="top"></div>
+  <div class="container">
+    <div class="intro">
+      <h1 class="headline">26th y California</h1>
+      <p>Visualiza los datos de raspado de preso localizador del Sheriff del Condado de Cook</p>
+      <p>Creado por el <a href="https://github.com/sc3/sc3">Supreme Chi-Town Coding Crew</a></p>
+      <div class="social-links text-center">
+        <a target="_blank" href="https://www.facebook.com/sharer.php?u=&t=">
+          <i class="fa fa-facebook-square"></i>
+        </a>
+        <a target="_blank" href="https://www.facebook.com/sharer.php?u=&t=">
+          <i class="fa fa-twitter-square"></i>
+        </a>
+        <a target="_blank" href="https://www.facebook.com/sharer.php?u=&t=">
+          <i class="fa fa-google-plus-square"></i>
+        </a>
+        <a target="_blank" href="https://www.facebook.com/sharer.php?u=&t=">
+          <i class="fa fa-pinterest-square"></i>
+        </a>
+      </div>
     </div>
   </div>
-  <div id="page-index" class="pagenav">
-    <div class="container-fluid">
-      <ul class="nav navbar-nav">
+
+  <div id="page-index" data-spy="affix" data-offset-top="266" data-auto-width="true" class="pagenav" role="navigation">
+    <div class="container text-center">
+      <ul class="nav nav-pills">
         <li><a href="#poblacion">Población x tiempo</a></li>
         <li><a href="#entradasalida">Entrada / salida</a></li>
         <li><a href="#demografía">Demografía</a></li>
@@ -40,15 +61,47 @@
     </div>
   </div>
 
-  <div class="container-fluid">
+  <!-- Contenido -->
+  <div class="container">
     <section id="#poblacion">
       <h1>Población</h1>
-      <p><em>Población en construcción.</em></p>
+
+      <div class="box">
+        <p><em>Población en construcción.</em></p>
+
+        <p>
+        Unidentified vessel travelling at sub warp speed, bearing 235.7. Fluctuations in energy readings from it, Captain. All transporters off. A strange set-up, but I'd say the graviton generator is depolarized. The dark colourings of the scrapes are the leavings of natural rubber, a type of non-conductive sole used by researchers experimenting with electricity. The molecules must have been partly de-phased by the anyon beam.
+        </p>
+
+        <p>
+        Unidentified vessel travelling at sub warp speed, bearing 235.7. Fluctuations in energy readings from it, Captain. All transporters off. A strange set-up, but I'd say the graviton generator is depolarized. The dark colourings of the scrapes are the leavings of natural rubber, a type of non-conductive sole used by researchers experimenting with electricity. The molecules must have been partly de-phased by the anyon beam.
+        </p>
+
+        <p>
+        Unidentified vessel travelling at sub warp speed, bearing 235.7. Fluctuations in energy readings from it, Captain. All transporters off. A strange set-up, but I'd say the graviton generator is depolarized. The dark colourings of the scrapes are the leavings of natural rubber, a type of non-conductive sole used by researchers experimenting with electricity. The molecules must have been partly de-phased by the anyon beam.
+        </p>
+
+
+      </div>
     </section>
+
   </div>
 
   <!-- Plantillas -->
   <!-- Bibliotecas de código -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.4/d3.min.js"></script>
+  <script src="js/ChartView.js"></script>
+  <script src="js/Charts.js"></script>
+
   <!-- Aplicación -->
+  <script>
+    $(document).ready(function() {
+      console.log('hello world');
+    });
+  </script>
 </body>
 </html>
