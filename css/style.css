@@ -64,11 +64,11 @@ a:hover { color: #c00; }
   border-bottom: 1px solid #bbb;
   padding-bottom: 10px;
   margin: 0 120px 20px 120px;
-  font-size: 18px;
+  font-size: 22px;
 }
 .intro .social-links {
   margin-top: 10px;
-  font-size: 30px;
+  font-size: 29px;
 }
 .intro .social-links a {
   display: inline-block;
