@@ -539,7 +539,8 @@ You will also add "shims" in this section, which will make your site work better
 
     This project relies heavily on content delivery network (CDN) versions of popular libraries and
     fonts. If your Internet access is spotty, you'll want to download these files to your computer
-    and check them into your repository.
+    and check them into your repository. `bower <http://bower.io/>`_ is highly recommended for 
+    easy installation of popular Javascript libraries.
 
 
 index.html: Analytics
