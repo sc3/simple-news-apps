@@ -6,7 +6,7 @@ Build a data visualization app
 
 This tutorial will walk you through the process of building a simple
 news application and publishing it on the web. You will learn the basics
-of responsive design and charting with D3 by visualizing data by the
+of responsive design and charting with D3 by visualizing data from the
 `@chitowncoders <http://twitter.com/chitowncoders/>`_ `Cook
 County Jail scraper <https://github.com/sc3/cookcountyjail/>`_.
 
@@ -127,7 +127,7 @@ Principles
 Our data
 --------
 
-Our data comes from `http://cookcountyjail.recoveredfactory.net/api/2.0/daily_population <http://cookcountyjail.recoveredfactory.net/api/2.0/daily_population>`_. This API endpoint provides data that looks like:
+Our data comes from `http://cookcountyjail.recoveredfactory.net/api/2.0/daily_population <http://cookcountyjail.recoveredfactory.net/api/2.0/daily_population>`_. This API endpoint provides data in the `JSON <http://en.wikipedia.org/wiki/JSON>`_ format that looks like:
 
 .. code-block:: json
 
