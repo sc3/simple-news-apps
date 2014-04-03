@@ -1,8 +1,8 @@
 :tocdepth: 2
 
-==============================
-Build a data visualization app
-==============================
+========================================
+Migrahack: Responsive data visualization
+========================================
 
 This tutorial will walk you through the process of building a simple
 news application and publishing it on the web. You will learn the basics
@@ -1287,8 +1287,6 @@ Tangent: Taking stock
 You've now set up a project. You've created a Backbone collection to manage some data. You've
 added methods to the collection to calculate summary values. You've created a Backbone view that
 listens for the collection to change and renders a table of summary values.
-
-
 
     
 Build: Make a time-series bar chart 
