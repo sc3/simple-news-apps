@@ -10,6 +10,7 @@ a:hover { color: #c00; }
 
 .pagenav {
   padding: 4px 0;
+  margin-bottom: 50px;
 }
 .pagenav.affix {
   width: 100%;
@@ -77,10 +78,10 @@ a:hover { color: #c00; }
 
 h1.headline { 
   text-align: center;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-bottom: 20px;
   font-size: 48px;
-  line-height: 56px;
+  line-height: 60px;
   border-bottom: 1px solid #bbb;
 }
 
@@ -95,8 +96,8 @@ section {
   margin-bottom: 65px;
 }
 
-@media (max-width: 767px) {
-  .navbar li.social {
-    display: none;
-  }
+.back {
+    float: right;
+    margin-top: -30px;
+    font-size: 14px;
 }

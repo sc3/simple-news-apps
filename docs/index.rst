@@ -133,8 +133,33 @@ TODO
 Planning: Sketch your interface
 ===============================
 
-TODO -- snapshot sketches
+Step 1: Sketch a lot
+--------------------
 
+.. image:: _static/sketchalot.jpg
+
+Step 2: Winnow it down
+----------------------
+
+.. image:: _static/winnow.jpg
+
+Step 3: Sketch again
+--------------------
+
+.. image:: _static/sketchagain.jpg
+
+
+Final concept
+-------------
+
+Using just HTML, I banged together a concept for the site. Once you're done with the set up chapters,
+you will have a site that looks like this on a desktop:
+
+.. image:: _static/desktop-mock.png
+
+And looks like this on an iPhone:
+
+.. image:: _static/iphone-mock.png
 
 Set up: Bootstrap your project
 ==============================
@@ -751,7 +776,6 @@ And last but not least, get the Javascript add running by editing ``js/app.js``:
 
     git add js/app.js
     git commit -m "hola mundo"
-
 
 
 Build: Make a time-series bar chart 
