@@ -1282,7 +1282,7 @@ When you're done, your final reload should look like this:
 
 .. image:: _static/build-table.png
 
-Tangent: Taking stock
+Break: Taking stock
 =====================
 
 You've now set up a project. You've created a Backbone collection to manage some data. You've
@@ -1293,10 +1293,93 @@ listens for the collection to change and renders a table of summary values.
 Build: Make a time-series bar chart 
 ===================================
 
+Buckle your seatbelt, it's finally time to make a chart with D3. You will be assisted in your 
+efforts by the Chicago Tribune's lightweight `ChartView library 
+<http://blog.apps.chicagotribune.com/2014/03/07/responsive-charts-with-d3-and-backbone/>`_.
+
+A basic chart view
+------------------
+
+``ChartView`` is intended to be extended, just like a regular Backbone View. Open up ``js/Charts.js``
+and add a simple chart view:
+
+.. code-block:: javascript
+
+    var DailyPopulationChartView = ChartView.extend({
+      draw: function() {
+        this.$el.html('¡Hola mundo!');
+        return this;
+      },
+    });
+
+.. code-block:: bash
+    
+    git commit -am "incorporar DailyPopulationChartView"
+
+When creating a ChartView, you must supply a collection. The ChartView automatically listens for
+changes to the collection and re-renders when they occur. 
+
+All you need to do to make a ChartView work is to extend ChartView with your own chart class 
+and specify a `draw` method. Then create a new instance with something like
+``new MyChartView({el: $("#myel"), collection: mycollection})``.
+
+To make it work here, first add an empty ``<div class="chart">`` to the ``poblacion-diaria`` section
+of ``index.html``. This element will be your chart's container.
+
+.. code-block:: html
+
+    <section id="poblacion-diaria">
+      <h1>Población diaria</h1>
+      <a href="#top" class="back">Back to top <i class="fa fa-arrow-up"></i></a>
+      <div class="row">
+        <div class="col-md-8">
+          <div class="chart"></div>
+        </div>
+        <div class="col-md-4">
+          <div class="box">
+            <h3>Estadísticas diarias</h3>
+            <div class="stats"></div>
+            <p class="small">Todas las estadísticas de uso de la población de todo el sistema. Esto incluye prisioneros que no están alojados físicamente en la cárcel.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+.. code-block:: bash
+    
+    git commit -am "incorporar elemento para DailyPopulationChartView"
+
+Finally, create a new instance of ``DailyPopulationChartView`` in ``js/app.js``:
+
+.. code-block:: javascript
+
+    $(document).ready(function() {
+      var population = new DailyPopulationCollection();
+
+      var population_table = new StatsTableView({
+        el: $("#poblacion-diaria .stats"),
+        collection: population,
+        template: $('#population-table-template').html(),
+      });
+
+      var population_chart = new DailyPopulationChartView({
+        el: $("#poblacion-diaria .chart"),
+        collection: population
+      });
+
+      population.fetch();
+    });
+
+.. code-block:: bash
+    
+    git commit -am "incorporar un instancia de DailyPopulationChartView a aplicacion"
+
+When ``population.fetch()`` is called, the daily population chart will render. We should expect
+to see "hola mundo" replace "grafico venir" in the left column. Reload! You should see something 
+like this:
+
+.. image:: _static/chart-works.png
 
 
-
-
-
-
-
+Add the d3 code
+---------------
