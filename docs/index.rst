@@ -251,6 +251,7 @@ Now create a bunch of empty files and directories.
     touch index.html
     touch README.md
     touch css/style.css
+    touch js/Data.js
     touch js/Charts.js
     touch js/app.js
 
@@ -315,6 +316,7 @@ Check the status of your repository again.
     #       new file:   README.md
     #       new file:   css/style.css
     #       new file:   index.html
+    #       new file:   js/Data.js
     #       new file:   js/Charts.js
     #       new file:   js/app.js
 
@@ -857,6 +859,7 @@ Add libraries and application code in a single commit.
       <script src="//26thycalifornia/js/ChartView.js"></script>
 
       <!-- Aplicación -->
+      <script src="js/Data.js"></script>
       <script src="js/Charts.js"></script>
       <script src="js/app.js"></script>
 
