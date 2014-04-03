@@ -1155,6 +1155,7 @@ Open up ``js/Charts.js`` to add a Backbone view that will render a table of data
 
     
 .. code-block:: bash
+
     git commit -am "incorporar StatsTableView en Charts.js" 
 
 
@@ -1286,6 +1287,8 @@ Tangent: Taking stock
 You've now set up a project. You've created a Backbone collection to manage some data. You've
 added methods to the collection to calculate summary values. You've created a Backbone view that
 listens for the collection to change and renders a table of summary values.
+
+
 
     
 Build: Make a time-series bar chart 
