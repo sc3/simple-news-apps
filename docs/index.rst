@@ -882,6 +882,16 @@ And last but not least, get the Javascript add running by editing ``js/app.js``:
     git commit -m "hola mundo"
 
 
+Did it work?
+------------
+
+If you haven't been checking in your browser, now is the time. Open index.html in your browser and
+open your console. ¡Hola mundo!
+
+
+.. image:: _static/itworks.png
+
+
 Build: Make a time-series bar chart 
 ===================================
 
