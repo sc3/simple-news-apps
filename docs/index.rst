@@ -682,6 +682,8 @@ to start working from.
       font-size: 14px;
     }
 
+    /* -- Su estilos -- */
+
     @media (max-width: 768px) {
       h1.headline { 
         text-align: center;
@@ -894,21 +896,401 @@ open your console. ¡Hola mundo!
 
 .. image:: _static/itworks.png
 
+Build: Getting set up
+=====================
 
+You will now build some Javascript tools to process and analyze the daily population data from
+the jail. 
+
+Download
+--------
+
+@TODO Download from tagged build of demo repo
+
+
+Create placeholders
+-------------------
+
+Open ``index.html`` in your editor. Find the section associated with the jail population:
+
+.. code-block:: html
+
+    <section id="poblacion-diaria">
+      <h1>Población diaria</h1>
+      <a href="#top" class="back">Back to top <i class="fa fa-arrow-up"></i></a>
+      <div class="box">
+        <p><em>En construcción.</em></p>
+      </div>
+    </section>
+
+There it is! And construcción is now happening. You should stub out the basic architecture. In this
+case it will be a wide column for a chart and a narrow column for some statistics.
+
+.. code-block:: html
+
+    <section id="poblacion-diaria">
+      <h1>Población diaria</h1>
+      <a href="#top" class="back">Back to top <i class="fa fa-arrow-up"></i></a>
+      <div class="row">
+        <div class="col-md-8">
+          <h2>grafico venir</h2>
+        </div>
+        <div class="col-md-4">
+          <div class="box">
+            <h2>tabla venir</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+
+Now commit your changes!
+
+.. code-block:: bash
+
+    git commit -am "incorporar avisos a 'venir' a seccion poblacion"
+
+.. note::
+
+    Did you notice how we used the ``-a`` flag in ``git commit -am <message>``? This commits all 
+    modified files in your repository, sight unseen. It's effiecient, but should be used with care.
+    For the rest of the tutorial we'll use it exclusively except when adding new files. Commit
+    messages will no longer come with any description but simply follow every code block. 
+
+Build: Set up Backbone collection
+---------------------------------
+
+You will first need a way of accessing and processing your data.
+
+Open ``js/Data.js`` to create a Backbone *collection* to keep track of the data.
+
+.. code-block:: javascript
+
+    var DailyPopulationCollection = Backbone.Collection.extend({
+      url: 'data/daily_population.json'
+    });
+
+Hmmm, that didn't seem very hard. What will this do for you?
+
+Replace ``js/app.js`` with some debugging code to see what's going on:
+
+.. code-block:: javascript
+
+    $(document).ready(function() {
+      var population = new DailyPopulationCollection();
+      population.on("sync", function() { console.log(this.toJSON()); });
+      population.fetch();
+    });
+
+You did three things on those three lines: First, you created a new instance of the daily population
+collection. Then you bound a function that listens for changes to the population collection and logs
+the contents of the collection to your console. Finally, you fetched the population data. You should
+see something like this in your browser:
+
+.. image:: _static/confirm-collection.png
+
+.. code-block:: bash
+
+    git commit -am "incorporar collecion y depuracion de collecion" 
+
+.. note::
+
+    Your editor probably now have several tabs open: index.html, js/Data.js, js/Charts.js,
+    js/app.js, and css/style.css. This is as it should be. Many common web development tasks involve
+    changing several files in tandem. 
+
+Build: Process data with collection methods
+-------------------------------------------
+
+Switch back to ``js/Data.js``. No data in perfect. In this case, our data represents numbers as
+strings. Add your first collection method -- the special ``parse`` method -- to process your data.
+
+
+.. code-block:: javascript
+
+    var DailyPopulationCollection = Backbone.Collection.extend({
+      url: 'data/daily_population.json',
+      parse: function(data) {
+        // Cast all keys to numbers
+        return _.map(data, function(day) {
+          for (key in day)
+              day[key] = Number(day[key]);
+          return day;
+        });
+      }
+    });
+
+.. code-block:: bash
+
+    git commit -am "incorporar parse funcion"
+
+Add a custom method called ``average`` to calculate the average value for a daily field: 
+
+.. code-block:: javascript
+
+    var DailyPopulationCollection = Backbone.Collection.extend({
+      url: 'data/daily_population.json',
+
+      parse: function(data) {
+        // Cast all strings to numbers
+        return _.map(data, function(day) {
+          for (key in day)
+              day[key] = Number(day[key]);
+          return day;
+        });
+      },
+
+      average: function(field) {
+        // Calculate average for 'field`
+        var values = this.pluck(field)
+        var sum = _.reduce(values, function(memo, num) { return memo + num; }, 0);
+        return Math.round(sum / values.length);
+      }
+    });
+
+Update ``js/app.js`` to see if it worked.
+
+.. code-block:: javascript
+
+    $(document).ready(function() {
+      var population = new DailyPopulationCollection();
+      population.on("sync", function() { console.log("Average:", this.average('population')); });
+      population.fetch();
+    });
+
+If you reload your browser, your console should report something like "Average: 12584.20158102766".
+
+.. code-block:: bash
+
+    git commit -am "incorporar la funcion de media" 
+
+
+Now add ``max`` and ``min`` methods in ``js/Data.js``:
+
+.. code-block:: javascript
+
+    var DailyPopulationCollection = Backbone.Collection.extend({
+      url: 'data/daily_population.json',
+
+      parse: function(data) {
+        // Cast all strings to numbers
+        return _.map(data, function(day) {
+          for (key in day)
+              day[key] = Number(day[key]);
+          return day;
+        });
+      },
+
+      average: function(field) {
+        // Calculate average for 'field`
+        var values = this.pluck(field)
+        var sum = _.reduce(values, function(memo, num) { return memo + num; }, 0);
+        return Math.round(sum / values.length);
+      },
+
+      get_max: function(field) {
+        // Calculate max for 'field'
+        return this.max(function(day) {
+          return day.get(field);
+        });
+      },
+
+      get_min: function(field) {
+        // Calculate min for 'field'
+        return this.min(function(day) {
+          return day.get(field);
+        });
+      }
+    });
+
+... and see if it worked by adding more debugging lines to ``js/app.js``:
+
+Update ``js/app.js`` to see if it worked.
+
+.. code-block:: javascript
+
+    $(document).ready(function() {
+      var population = new DailyPopulationCollection();
+      population.on("sync", function() {
+        console.log("Average:", this.average('population')); 
+        console.log("Min:", this.get_min('population')); 
+        console.log("Max:", this.get_max('population')); 
+      });
+      population.fetch();
+    });
+
+
+
+.. code-block:: bash
+
+    git commit -am "incorporar funciones de max y min" 
+
+
+.. note::
+
+    First you created the bare bones of a collection. Now you're adding some methods. This simple 
+    pattern -- make some changes, make sure they work, commit, and keep going -- is the fundamental 
+    rhythm of software development.
+
+
+Build: Make a table
+===================
+
+Open up ``js/Charts.js`` to add a Backbone view that will render a table of data:
+
+
+.. code-block:: javascript
+
+    var StatsTableView = Backbone.View.extend({
+      initialize: function(options) {
+        this.template = _.template(options.template);
+        this.collection.on('sync', this.render, this);
+      },
+      render: function() {
+        this.$el.html(this.template({
+          collection: this.collection
+        }));
+        return this;
+      },
+    });
+
+    
+.. code-block:: bash
+    git commit -am "incorporar StatsTableView en Charts.js" 
+
+
+This simple Backbone view puts most of the work onto the template. The ``intialize`` method says to use the template passed in via the options and to 
+listen for data changes to render.
+
+Now you must create the template and a new instance of ``StatsTableView``. Start by adding the template to ``index.html`` in 
+the aplicación section:
+
+.. code-block:: html
+
+  <!-- Aplicación -->
+  <script type="text/template" id="population-table-template">
+    <table class="table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Promedio</th>
+          <th>Máximo</th>
+          <th>Mínimo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Población</th>
+          <td><%= collection.average("population") %></td>
+          <td><%= collection.get_max("population").get("population") %></td>
+          <td><%= collection.get_min("population").get("population") %></td>
+        </tr>
+        <tr>
+          <th>Reservas</th>
+          <td><%= collection.average("booked") %></td>
+          <td><%= collection.get_max("booked").get("booked") %></td>
+          <td><%= collection.get_min("booked").get("booked") %></td>
+        </tr>
+        <tr>
+          <th>Mutis</th>
+          <td><%= collection.average("left") %></td>
+          <td><%= collection.get_max("left").get("left") %></td>
+          <td><%= collection.get_min("left").get("left") %></td>
+        </tr>
+      </tbody>
+    </table>
+  </script>
+  <script src="js/Data.js"></script>
+  <script src="js/Charts.js"></script>
+  <script src="js/app.js"></script>
+
+
+.. code-block:: bash
+
+    git commit -am "incorporar plantilla por estadisticas de poblacion" 
+
+
+Add a place in ``index.html``'s population section for your handiwork along with a bit of
+copy explaining these numbers are based on system-wide population counts, which include people who
+are not physically located at the jail:
+
+.. code-block:: html
+
+    <section id="poblacion-diaria">
+      <h1>Población diaria</h1>
+      <a href="#top" class="back">Back to top <i class="fa fa-arrow-up"></i></a>
+      <div class="row">
+        <div class="col-md-8">
+          <h2>grafico venir</h2>
+        </div>
+        <div class="col-md-4">
+          <div class="box">
+            <h3>Estadísticas diarias</h3>
+            <div class="stats"></div>
+            <p class="small">Todas las estadísticas de uso de la población de todo el sistema. Esto incluye prisioneros que no están alojados físicamente en la cárcel.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+.. code-block:: bash
+
+    git commit -am "incorporar elementos para StatsTableView" 
+
+
+You need to execute your all this code you've written to see anything happen. 
+Do that by updating ``js/app.js``:
+
+.. code-block:: javascript
+
+    $(document).ready(function() {
+      var population = new DailyPopulationCollection();
+      var population_table = new StatsTableView({
+        el: $("#poblacion-diaria .stats"),
+        collection: population,
+        template: $('#population-table-template').html(),
+      }); 
+      population.fetch();
+    });
+
+.. code-block:: bash
+
+    git commit -am "incorporar una nueva StatsTableView en app.js"
+
+I happen to know our tables look kind of bad. The final step is to add some CSS to 
+``css/style.css`` to spruce up our tables:
+
+.. code-block:: css
+
+    /* -- Su estilos -- */
+
+    .table {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 14px;
+    }
+    .table thead th,
+    .table tbody td {
+      text-align: right;
+    }
+
+.. code-block:: bash
+
+    git commit -am "mejorar el estilo tabla"
+
+When you're done, your final reload should look like this:
+
+.. image:: _static/build-table.png
+
+Tangent: Taking stock
+=====================
+
+You've now set up a project. You've created a Backbone collection to manage some data. You've
+added methods to the collection to calculate summary values. You've created a Backbone view that
+listens for the collection to change and renders a table of summary values.
+
+    
 Build: Make a time-series bar chart 
 ===================================
 
-
-Build: Summarize data with collection object methods
-====================================================
-
-
-Build: Writing words with data
-==============================
-
-
-Build: Adding chart interaction
-===============================
 
 
 
