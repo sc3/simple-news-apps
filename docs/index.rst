@@ -127,7 +127,61 @@ Principles
 Our data
 --------
 
-TODO
+Our data comes from `http://cookcountyjail.recoveredfactory.net/api/2.0/daily_population <http://cookcountyjail.recoveredfactory.net/api/2.0/daily_population>`_. This API endpoint provides data that looks like:
+
+.. code-block:: json
+
+    [
+        {
+            date: "2013-07-22",
+            males_left_as: "4",
+            males_left_in: "0",
+            females_booked_bk: "16",
+            males_left: "171",
+            males_booked_lt: "30",
+            females_booked: "18",
+            females_left_bk: "11",
+            males_population_wh: "1069",
+            males_population_lt: "1951",
+            females_booked_in: "0",
+            females_left_in: "0",
+            females_booked_as: "0",
+            females_left_as: "0",
+            males_booked_as: "1",
+            females_population_lt: "107",
+            males_population: "12012",
+            females_population_un: "0",
+            males_population_as: "73",
+            females_left_wh: "3",
+            females_left: "16",
+            population: "13104",
+            females_population_wh: "202",
+            females_left_lt: "2",
+            males_population_in: "7",
+            females_population_bk: "775",
+            females_booked_un: "0",
+            males_booked_wh: "30",
+            males_left_lt: "34",
+            females_booked_wh: "1",
+            females_booked_lt: "1",
+            males_left_wh: "14",
+            males_booked: "159",
+            males_left_un: "0",
+            males_left_bk: "119",
+            males_booked_in: "0",
+            males_population_bk: "8912",
+            booked: "177",
+            females_population_as: "5",
+            males_population_un: "0",
+            females_population_in: "3",
+            males_booked_bk: "98",
+            males_booked_un: "0",
+            females_population: "1092",
+            females_left_un: "0",
+            left: "187"
+        },
+        // ...
+    ]
 
 
 Planning: Sketch your interface
