@@ -731,8 +731,6 @@ to start working from.
     }
 
 
-
-
 .. code-block:: bash
 
     git add css/style.css 
@@ -775,41 +773,6 @@ Add an introduction with social media links and a short credit.
     git add index.html
     git commit -m "incorporar introducción"
 
-index.html: Add introduction
-----------------------------
-
-Add an introduction with social media links and a short credit.
-
-.. code-block:: html
-
-      <!-- Introducción -->
-      <div id="top"></div>
-      <div class="container">
-        <div class="intro">
-          <h1 class="headline">26th y California</h1>
-          <p>Visualiza los datos de raspado de preso localizador del Sheriff del Condado de Cook</p>
-          <p>Desarrollado por <a href="https://github.com/sc3/sc3">Supreme Chi-Town Coding Crew</a></p>
-          <div class="social-links text-center">
-            <a target="_blank" href="https://www.facebook.com/sharer.php?u=http%3A%2F%2F26thycalifornia.recoveredfactory.net&t=26th+y+California">
-              <i class="fa fa-facebook-square"></i>
-            </a>
-            <a target="_blank" href="https://twitter.com/share?url=http%3A%2F%2F26thycalifornia.recoveredfactory.net&text=26th+y+California">
-              <i class="fa fa-twitter-square"></i>
-            </a>
-            <a target="_blank" href="https://plus.google.com/share?url=http%3A%2F%2F26thycalifornia.recoveredfactory.net">
-              <i class="fa fa-google-plus-square"></i>
-            </a>
-            <a target="_blank" href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2F26thycalifornia.recoveredfactory.net&media=http%3A%2F%2F26thycalifornia.recoveredfactory.net%2Fimg%2Fguard-tower-large.jpg&description=26th+y+California">
-              <i class="fa fa-pinterest-square"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-
-.. code-block:: bash
-
-    git add index.html
-    git commit -m "incorporar introducción"
 
 index.html: Add navigation
 --------------------------
