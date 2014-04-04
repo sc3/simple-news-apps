@@ -885,7 +885,7 @@ Add libraries and application code in a single commit.
       <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
       <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
       <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.4/d3.min.js"></script>
-      <script src="http://26thycalifornia/js/ChartView.js"></script>
+      <script src="http://26thycalifornia.recoveredfactory.net/js/ChartView.js"></script>
 
       <!-- Aplicación -->
       <script src="js/Data.js"></script>
@@ -1471,3 +1471,24 @@ Add more to ``js/Charts.js``:
         return this;
       },
     });
+
+Now instantiate your chart in ``js/app.js``:
+
+.. code-block:: javascript
+
+  $(document).ready(function() {
+    var population = new DailyPopulationCollection();
+
+    var population_table = new StatsTableView({
+      el: $("#poblacion-diaria .stats"),
+      collection: population,
+      template: $('#population-table-template').html(),
+    });
+
+    var population_chart = new DailyPopulationChartView({
+      el: $("#poblacion-diaria .chart"),
+      collection: population
+    });
+
+  population.fetch();
+});
