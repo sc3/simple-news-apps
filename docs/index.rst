@@ -24,9 +24,9 @@ by Ryan Nagle.
 This guide was prepared for Migrahack Mexico City, April 3-6, 2014 and presented
 by `David Eads <http://twitter.com/eads>`_.
 
-* Code repository: `https://github.com/sc3/26thycalifornia <https://github.com/sc3/26thycalifornia>`_
+* Tutorial: `http://migrahack.readthedocs.org/ <http://migrahack.readthedocs.org/>`_
 * Demonstration: `http://26thycalifornia.recoveredfactory.net <http://26thycalifornia.recoveredfactory.net>`_
-* Documentation: `http://migrahack.readthedocs.org/ <http://migrahack.readthedocs.org/>`_
+* Code repository: `https://github.com/sc3/26thycalifornia <https://github.com/sc3/26thycalifornia>`_
 * Issues: `https://github.com/sc3/26thycalifornia/issues <https://github.com/sc3/26thycalifornia/issues>`_
 
 Prerequisites
@@ -43,7 +43,7 @@ Prerequisites
 Web browser
 -----------
 
-Firefox or Chrome. 
+Firefox or Chrome.
 
 
 Text editor
@@ -920,20 +920,18 @@ Did it work?
 If you haven't been checking in your browser, now is the time. Open index.html in your browser and
 open your console. ¡Hola mundo!
 
-
 .. image:: _static/itworks.png
 
 Build: Getting set up
 =====================
 
 You will now build some Javascript tools to process and analyze the daily population data from
-the jail. 
+the jail.
 
 Download
 --------
 
-@TODO Download from tagged build of demo repo
-
+If you skipped the setup section, you'll need to download the source code.
 
 Create placeholders
 -------------------
