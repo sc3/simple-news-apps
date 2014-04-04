@@ -496,6 +496,7 @@ Add the meta section to your index.html:
 
       <!-- Meta -->
       <link rel="shortcut icon" href="img/favicon.ico" />
+      <meta charset="utf-8"> 
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
       <meta property="og:url" content="http://26thycalifornia.recoveredfactory.net" />
@@ -519,8 +520,8 @@ You will also add "shims" in this section, which will make your site work better
 .. code-block:: html
 
       <!-- CSS -->
-      <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css" />
-      <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css" />
+      <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css" />
+      <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css" />
       <link href='http://fonts.googleapis.com/css?family=Radley:400' rel='stylesheet' type='text/css'>
       <link rel="stylesheet" type="text/css" href="css/style.css" />
 
@@ -774,6 +775,68 @@ Add an introduction with social media links and a short credit.
     git add index.html
     git commit -m "incorporar introducción"
 
+index.html: Add introduction
+----------------------------
+
+Add an introduction with social media links and a short credit.
+
+.. code-block:: html
+
+      <!-- Introducción -->
+      <div id="top"></div>
+      <div class="container">
+        <div class="intro">
+          <h1 class="headline">26th y California</h1>
+          <p>Visualiza los datos de raspado de preso localizador del Sheriff del Condado de Cook</p>
+          <p>Desarrollado por <a href="https://github.com/sc3/sc3">Supreme Chi-Town Coding Crew</a></p>
+          <div class="social-links text-center">
+            <a target="_blank" href="https://www.facebook.com/sharer.php?u=http%3A%2F%2F26thycalifornia.recoveredfactory.net&t=26th+y+California">
+              <i class="fa fa-facebook-square"></i>
+            </a>
+            <a target="_blank" href="https://twitter.com/share?url=http%3A%2F%2F26thycalifornia.recoveredfactory.net&text=26th+y+California">
+              <i class="fa fa-twitter-square"></i>
+            </a>
+            <a target="_blank" href="https://plus.google.com/share?url=http%3A%2F%2F26thycalifornia.recoveredfactory.net">
+              <i class="fa fa-google-plus-square"></i>
+            </a>
+            <a target="_blank" href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2F26thycalifornia.recoveredfactory.net&media=http%3A%2F%2F26thycalifornia.recoveredfactory.net%2Fimg%2Fguard-tower-large.jpg&description=26th+y+California">
+              <i class="fa fa-pinterest-square"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+.. code-block:: bash
+
+    git add index.html
+    git commit -m "incorporar introducción"
+
+index.html: Add navigation
+--------------------------
+
+Add some navigation!
+
+.. code-block:: html
+
+  <!-- Navegación -->
+  <div data-spy="affix" data-offset-top="241" data-auto-width="true" class="pagenav" role="navigation">
+    <div class="container text-center">
+      <ul class="pagenav-nav nav nav-pills">
+        <li><a href="#poblacion-diaria">Población diaria</a></li>
+        <li><a href="#entrada-y-salida">Entrada y salida</a></li>
+        <li><a href="#demografia">Demografía</a></li>
+        <li><a href="#tribuneales">Tribunales</a></li>
+        <li><a href="#citacion">Citaciónes</a></li>
+      </ul>
+    </div>
+  </div>
+
+.. code-block:: bash
+
+    git add index.html
+    git commit -m "incorporar navegación"
+
+
 index.html: Add content placeholders
 ------------------------------------
 
@@ -854,12 +917,12 @@ Add libraries and application code in a single commit.
 .. code-block:: html
 
       <!-- Bibliotecas de código -->
-      <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.4/d3.min.js"></script>
-      <script src="//26thycalifornia/js/ChartView.js"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.4/d3.min.js"></script>
+      <script src="http://26thycalifornia/js/ChartView.js"></script>
 
       <!-- Aplicación -->
       <script src="js/Data.js"></script>
